@@ -1,5 +1,5 @@
 # FoodApp
-_Tienda de venta de comida Online. _
+_Tienda de venta de comida Online._
 _Desarrollado como proyecto para CoderHouse._
 **Comision 22405**
 
