@@ -53,7 +53,7 @@ h1 {
 }
 
 .actived:hover {
-  background-color: #0b0000;
+  background-color: #330000;
 }
 
 .btn {
@@ -87,20 +87,18 @@ h1 {
   color: #94b494;
   background-color: green;
   text-align: center;
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 1rem 0;
   position: absolute;
   padding: 1rem;
   bottom: 30px;
   right: 0;
+  margin: 1rem;
 }
 
 @media (min-width: 768px) {
   .container {
     width: 90%;
-  }
-  .btn {
-    width: 50%;
   }
 }
 
@@ -145,11 +143,20 @@ header > div {
       flex-wrap: nowrap;
 }
 
-nav {
-  width: 60%;
+nav .shop {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  font-size: 2.2rem;
+  list-style: none;
+  text-align: center;
 }
 
-nav ul {
+nav .shop li a {
+  padding: 1.5rem;
+  border-radius: 2rem;
+}
+
+nav ul.navegacion {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,7 +176,7 @@ nav ul {
           transform: translate(0px, -150%);
 }
 
-nav ul.is_active {
+nav ul.navegacion.is_active {
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
   -webkit-transition: -webkit-transform 1s;
@@ -179,11 +186,11 @@ nav ul.is_active {
   z-index: 1;
 }
 
-nav ul li {
+nav ul.navegacion li {
   list-style: none;
 }
 
-nav ul li a {
+nav ul.navegacion li a {
   font-size: 2rem;
   color: #FFF8D9;
   padding: 1.2rem;
@@ -192,7 +199,7 @@ nav ul li a {
   transition: .3s all;
 }
 
-nav ul li a:hover {
+nav ul.navegacion li a:hover {
   color: #b9b293;
 }
 
@@ -231,7 +238,7 @@ nav ul li a:hover {
 
 @media (max-width: 768px) {
   /* Creamos un mq únicamente para la navegacion */
-  nav ul {
+  nav ul.navegacion {
     position: absolute;
     top: 0;
     left: 0;
@@ -261,7 +268,24 @@ nav ul li a:hover {
   .menuHamburguesa {
     display: none;
   }
-  nav ul {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  nav ul.navegacion {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
@@ -451,6 +475,11 @@ footer > div p {
   width: 80%;
 }
 
+.productos-detalle > div#carrito > h2 {
+  text-align: center;
+  font-size: 2.2rem;
+}
+
 .productos-detalle > div#total p {
   font-size: 2.2rem;
   font-weight: bold;
@@ -552,6 +581,8 @@ footer > div p {
 }
 
 .modal-detalle {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
@@ -673,5 +704,27 @@ footer > div p {
   color: #51050F;
   font-size: 2.2rem;
   font-weight: bold;
+}
+
+/* Media Queries */
+@media (min-width: 468px) {
+  .modal-detalle {
+    height: 65vh;
+    width: 70vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-detalle {
+    height: 68vh;
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-detalle {
+    height: 68vh;
+    width: 30vw;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -10,7 +10,6 @@ let valueAmount = Number(amount.value);
 let productos = document.getElementById('productos');
 let addProduct = document.getElementById('add-product')
 
-
 /* ---------- CLASES ---------- */
 class Food{
     constructor(name, price, desc, url){
@@ -65,9 +64,6 @@ const guardarCarro = (clave, valor) => {
 const getCarro = (clave) => {
     return JSON.parse(localStorage.getItem(clave));
 }
-const showCarro = () => {
-    console.log(JSON.parse(localStorage.getItem('carro')));
-}
 
 /* ---------- EVENTOS ---------- */
 /* MODALES */
@@ -85,6 +81,7 @@ close[0].addEventListener('click', (e) => {
     valueAmount = 0
     amount.value = valueAmount;
 })
+/* CANTIDAD */
 add.addEventListener('click', (e) => {
     e.preventDefault()
     valueAmount += 1;
@@ -108,7 +105,7 @@ addProduct.addEventListener('click', () => {
     for (const f of burguers){ // Recorremos la base de datos y verificamos que la comida exista
         if (title == f.name){
             f.cantidad += Math.abs(Number(amountFood)) // Sumamos la cantidad en el objeto
-            let carro = getCarro('carro');
+            let carro = getCarro('carro'); // Obtenemos el carro almacenado en el LocalStorage
             if(carro != null){
                 for (const c of carro){ //Recorremos el localStorage del carro
                     if(c.name == title){ // Si el objeto ya existe se le suma la cantidad a ese mismo objeto y la banderase anula
@@ -133,7 +130,8 @@ addProduct.addEventListener('click', () => {
     `
     setTimeout(function(){
         success.removeChild(success.children[0]) // Le establecemos un tiempo para que desaparezca la alerta
-    }, (5000))
+        modal[0].style.display = 'none' // Cerramos el modal
+    }, (1000))
 
     /* Reseteamos valores */
     valueAmount = 0
