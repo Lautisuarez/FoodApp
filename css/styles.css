@@ -151,6 +151,20 @@ nav .shop {
   text-align: center;
 }
 
+nav .shop li {
+  position: relative;
+}
+
+nav .shop li #notification {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -.5rem;
+  right: -.5rem;
+  background-color: green;
+  border-radius: 10rem;
+}
+
 nav .shop li a {
   padding: 1.5rem;
   border-radius: 2rem;

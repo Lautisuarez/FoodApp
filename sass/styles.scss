@@ -162,9 +162,21 @@ nav {
         font-size: $txt-title;
         list-style: none;
         text-align: center;
-        li a {
-            padding: 1.5rem;
-            border-radius: 2rem;
+        li {
+            position: relative;
+            #notification {
+                width: 1.5rem;
+                height: 1.5rem;
+                position: absolute;
+                top: -.5rem;
+                right: -.5rem;
+                background-color: green;
+                border-radius: 10rem;
+            }
+            a {
+                padding: 1.5rem;
+                border-radius: 2rem;
+            }
         }
     }
     ul.navegacion {
