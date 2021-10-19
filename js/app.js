@@ -63,13 +63,13 @@ const insertArray = (array) => {
         a.insertHTML(productos)
     }
 }
-if (page == '/pages/burguers.html'){
+if (page == '/FoodApp/pages/burguers.html'){
     insertArray(burguers)
-} else if (page == '/pages/lomos.html'){
+} else if (page == '/FoodApp/pages/lomos.html'){
     insertArray(lomos)
-} else if(page == '/pages/fries.html') {
+} else if(page == '/FoodApp/pages/fries.html') {
     insertArray(papas)
-} else if (page == '/pages/drinks.html'){
+} else if (page == '/FoodApp/pages/drinks.html'){
     insertArray(bebidas)
 }
 
@@ -149,13 +149,13 @@ document.getElementById('less').addEventListener('click', (e) => {
 /* LocalStorage */
 productToAdd.addEventListener('click', () => {
     // Lo agregamos al localStorage
-    if (page == '/pages/burguers.html'){
+    if (page == '/FoodApp/pages/burguers.html'){
         addProduct(burguers)
-    } else if (page == '/pages/lomos.html'){
+    } else if (page == '/FoodApp/pages/lomos.html'){
         addProduct(lomos)
-    } else if (page == '/pages/fries.html'){
+    } else if (page == '/FoodApp/pages/fries.html'){
         addProduct(papas)
-    } else if (page == '/pages/drinks.html'){
+    } else if (page == '/FoodApp/pages/drinks.html'){
         addProduct(bebidas)
     }
 
