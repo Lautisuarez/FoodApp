@@ -1,6 +1,7 @@
 /* VARIABLES */
 let carrito = document.getElementById('carrito');
 let food = document.getElementsByClassName('food');
+let shop = document.getElementsByClassName('shop')[0].childNodes[1];
 
 /* FUNCIONES */
 const getCarro = (clave) => {
@@ -53,4 +54,9 @@ for (const f of food){
     f.childNodes[5].addEventListener('click', () => {
         deleteFood(f)
     })
+}
+if (carro.length > 0){
+    shop.innerHTML += `
+        <div id='notification'></div>
+    `
 }

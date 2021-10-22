@@ -120,7 +120,7 @@ const addProduct = (array) => {
 for (const f of document.getElementsByClassName('food')){
     f.addEventListener('click', (e) => {
         e.preventDefault()
-        modal[0].style.display = 'block';
+        modal[0].style.display = 'flex';
         contentModal(f)
     })
 }
@@ -180,7 +180,7 @@ productToAdd.addEventListener('click', () => {
     amount.value = valueAmount;
 })
 
-/* ---------- PROGRAMA ---------- */
+/* PROGRAMA */
 if (getCarro('carro').length > 0){
     shop.innerHTML += `
         <div id='notification'></div>

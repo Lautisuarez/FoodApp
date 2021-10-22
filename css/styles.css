@@ -83,22 +83,26 @@ h1 {
 }
 
 .success {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   font-size: 2rem;
   color: #94b494;
   background-color: green;
   text-align: center;
   border-radius: 1rem;
-  padding: 1rem 0;
   position: absolute;
   padding: 1rem;
-  bottom: 30px;
+  bottom: 0;
   right: 0;
-  margin: 1rem;
+  margin: 0 1rem 1rem 0;
 }
 
 @media (min-width: 768px) {
   .container {
     width: 90%;
+  }
+  .success {
+    margin-bottom: 2rem;
   }
 }
 
@@ -121,8 +125,24 @@ body.body-fijo main {
 }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   background-color: #bb371a;
-  padding: 3rem 0;
+  padding: 1rem 0;
+  height: 25vh;
 }
 
 header > div {
@@ -250,7 +270,7 @@ nav ul.navegacion li a:hover {
           transform: translateY(-350%) rotate(135deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* Creamos un mq únicamente para la navegacion */
   nav ul.navegacion {
     position: absolute;
@@ -278,7 +298,17 @@ nav ul.navegacion li a:hover {
   }
 }
 
+@media (min-width: 468px) {
+  header {
+    height: 15vh;
+  }
+}
+
 @media (min-width: 768px) {
+  header {
+    padding: 3rem 0;
+    height: 18vh;
+  }
   .menuHamburguesa {
     display: none;
   }
@@ -307,8 +337,9 @@ nav ul.navegacion li a:hover {
 
 /* -------------------- FOOTER -------------------- */
 footer {
+  display: none;
   background-color: #bb371a;
-  padding: 3rem 0;
+  padding: 1rem 0;
 }
 
 footer > div {
@@ -327,7 +358,7 @@ footer > div {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  row-gap: 2rem;
+  row-gap: .5rem;
 }
 
 footer > div p {
@@ -338,7 +369,16 @@ footer > div p {
           order: 1;
 }
 
+@media (min-width: 468px) {
+  footer {
+    display: block;
+  }
+}
+
 @media (min-width: 768px) {
+  footer {
+    padding: 3rem 0;
+  }
   footer > div {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -378,7 +418,7 @@ footer > div p {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 55vh;
+  height: 62vh;
   overflow-y: scroll;
   row-gap: 2rem;
 }
@@ -464,6 +504,7 @@ footer > div p {
       flex-wrap: wrap;
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
+  height: 13vh;
 }
 
 .productos .back a i {
@@ -480,7 +521,7 @@ footer > div p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 55vh;
+  height: 62vh;
   overflow-y: scroll;
 }
 
@@ -561,12 +602,15 @@ footer > div p {
 
 .food > div p {
   color: #51050F;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 /* Media Querie */
 @media (min-width: 768px) {
+  .productos .back {
+    height: 10vh;
+  }
   .productos-detalle {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -587,6 +631,9 @@ footer > div p {
   .food > div h2 {
     width: 100%;
   }
+  .food > div p {
+    font-size: 2.2rem;
+  }
 }
 
 /* -------------------- MODALES -------------------- */
@@ -595,6 +642,18 @@ footer > div p {
 }
 
 .modal-detalle {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -604,7 +663,7 @@ footer > div p {
   bottom: 0;
   margin: 0 auto;
   width: 95vw;
-  height: 65vh;
+  height: 75vh;
   background-color: #FFF8D9;
   -webkit-transition: .5s all;
   transition: .5s all;
@@ -613,7 +672,8 @@ footer > div p {
 
 .modal-detalle > div.add-product {
   text-align: center;
-  margin-top: 5rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .modal-detalle > div.add-product a {
@@ -636,6 +696,7 @@ footer > div p {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
 }
 
 .modal-detalle > div.amount input {
@@ -668,7 +729,7 @@ footer > div p {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 2rem;
+  padding: .5rem;
 }
 
 #modal-js img {
@@ -683,8 +744,7 @@ footer > div p {
 
 #modal-js > p {
   color: #51050F;
-  font-size: 1.5rem;
-  padding-bottom: 2rem;
+  font-size: 1.3rem;
   width: 90%;
   margin: 0 auto;
 }
@@ -705,39 +765,56 @@ footer > div p {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 2rem;
+  padding: .5rem;
 }
 
 #modal-js > div.description-product h2 {
   color: #bb371a;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
 }
 
 #modal-js > div.description-product p {
   color: #51050F;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 /* Media Queries */
 @media (min-width: 468px) {
   .modal-detalle {
-    height: 65vh;
     width: 70vw;
+  }
+  .modal-detalle > div.add-product {
+    margin-top: 5rem;
+  }
+  #modal-js {
+    padding: 2rem;
+  }
+  #modal-js > p {
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+  }
+  #modal-js > div.description-product {
+    padding: 2rem;
+  }
+  #modal-js > div.description-product h2 {
+    font-size: 2rem;
+  }
+  #modal-js > div.description-product p {
+    font-size: 2.2rem;
   }
 }
 
 @media (min-width: 768px) {
   .modal-detalle {
-    height: 68vh;
+    height: 72vh;
     width: 50vw;
   }
 }
 
 @media (min-width: 1200px) {
   .modal-detalle {
-    height: 68vh;
     width: 30vw;
   }
 }
