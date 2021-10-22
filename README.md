@@ -19,5 +19,5 @@ git clone https://github.com/Lautisuarez/FoodApp.git
 ## Autor ✒️
 **Lautaro Suárez** - [Github](https://github.com/Lautisuarez)
 
-<!-- ## Captura 📸
-<img src="/Screenshot.png"></img> -->
+## Captura 📸
+<img src="/captura.png"></img>
