@@ -14,7 +14,7 @@ $font-secondary: 'Permanent Marker', cursive;
 /* BORDES */
 $radius-box: 2rem;
 /* HEIGHT */
-$vh-height: 62vh;
+$vh-height: 69vh;
 
 
 /* -------------------- MIXIN -------------------- */
@@ -148,7 +148,7 @@ header {
     @include flex(true, row);
     background-color: $color-secondary;
     padding: 1rem 0;
-    height: 25vh;
+    height: 18vh;
     > div {
         @include flex(true, row, space-between, nowrap);
     }
@@ -234,13 +234,13 @@ nav {
 }
 @media (min-width: 468px) {
     header {
-        height: 15vh;
+        height: 10vh;
     }
 }
 @media (min-width: 768px){
     header {
-        padding: 3rem 0;
-        height: 18vh;
+        padding: 1rem 0;
+        height: 12vh;
     }
     .menuHamburguesa {
         display: none;
@@ -276,7 +276,7 @@ footer {
 }
 @media (min-width: 768px) {
     footer {
-        padding: 3rem 0;
+        padding: 2rem 0;
         > div {
             @include flex(true, row);
             p {
@@ -451,7 +451,7 @@ footer {
         bottom: 0;
         margin: 0 auto;
         width: 95vw;
-        height: 75vh;
+        height: 82vh;
         background-color: $color-main;
         transition: .5s all;
         display: none;

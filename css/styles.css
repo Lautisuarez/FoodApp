@@ -142,7 +142,7 @@ header {
       flex-wrap: wrap;
   background-color: #bb371a;
   padding: 1rem 0;
-  height: 25vh;
+  height: 18vh;
 }
 
 header > div {
@@ -300,14 +300,14 @@ nav ul.navegacion li a:hover {
 
 @media (min-width: 468px) {
   header {
-    height: 15vh;
+    height: 10vh;
   }
 }
 
 @media (min-width: 768px) {
   header {
-    padding: 3rem 0;
-    height: 18vh;
+    padding: 1rem 0;
+    height: 12vh;
   }
   .menuHamburguesa {
     display: none;
@@ -377,7 +377,7 @@ footer > div p {
 
 @media (min-width: 768px) {
   footer {
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
   footer > div {
     display: -webkit-box;
@@ -418,7 +418,7 @@ footer > div p {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 62vh;
+  height: 69vh;
   overflow-y: scroll;
   row-gap: 2rem;
 }
@@ -521,7 +521,7 @@ footer > div p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 62vh;
+  height: 69vh;
   overflow-y: scroll;
 }
 
@@ -663,7 +663,7 @@ footer > div p {
   bottom: 0;
   margin: 0 auto;
   width: 95vw;
-  height: 75vh;
+  height: 82vh;
   background-color: #FFF8D9;
   -webkit-transition: .5s all;
   transition: .5s all;
