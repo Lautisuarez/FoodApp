@@ -45,6 +45,51 @@ $vh-height: 69vh;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
+/* -------------------- ANIMACIONES -------------------- */
+@keyframes loader { /* Hacemos que el cuadrado del reload gire en 360 grados */
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner { /* Hacemos que el relleno del cuadrado del reload se llene y luego se vacíe */
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
 
 /* -------------------- RESET -------------------- */
 * {
@@ -73,7 +118,13 @@ h1 {
     font-size: $txt-title;
     margin: 2rem 0;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+input[type=number] { -moz-appearance:textfield; }
 
 /* -------------------- UTILIDADES -------------------- */
 .container {
@@ -549,5 +600,33 @@ footer {
         &-detalle {
             width: 30vw;
         }
+    }
+}
+
+/* ---------- RELOAD DE PÁGINA ---------- */
+#loader-wrapper {
+    @include flex(true, column, center);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color-secondary;
+    row-gap: 3rem;
+    h2 { color: $color-tertiary; }
+}
+.loader {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 4px solid #Fff;
+    animation: loader 2s infinite ease;
+    &-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #fff;
+        animation: loader-inner 2s infinite ease-in;
     }
 }

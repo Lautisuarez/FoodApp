@@ -1,5 +1,5 @@
 /* ---------- VARIABLES ---------- */
-let modal = document.getElementsByClassName('modal-detalle');
+let modal = $( ".modal-detalle" )
 let amount = document.getElementById('amount-input');
 let valueAmount = Number(amount.value);
 let productos = document.getElementById('productos');
@@ -120,13 +120,13 @@ const addProduct = (array) => {
 for (const f of document.getElementsByClassName('food')){
     f.addEventListener('click', (e) => {
         e.preventDefault()
-        modal[0].style.display = 'flex';
+        modal.css("display", "flex")
         contentModal(f)
     })
 }
 document.getElementById('close').addEventListener('click', (e) => {
     e.preventDefault()
-    modal[0].style.display = 'none'
+    modal.toggle('fast')
     /* Reseteamos valores */
     valueAmount = 0
     amount.value = valueAmount;
@@ -166,7 +166,7 @@ productToAdd.addEventListener('click', () => {
     `
     setTimeout(function(){
         success.removeChild(success.children[0]) // Le establecemos un tiempo para que desaparezca la alerta
-        modal[0].style.display = 'none' // Cerramos el modal
+        modal.toggle('slow'); // Cerramos el modal con jquery
     }, (1000))
 
     if (shop.childNodes[2] == Element.div) { // Verificamos si la notificación ya fue agregada de un principio por existir ya comidas en el carrito

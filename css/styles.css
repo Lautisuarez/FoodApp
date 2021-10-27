@@ -6,6 +6,92 @@
 /* BORDES */
 /* HEIGHT */
 /* -------------------- MIXIN -------------------- */
+/* -------------------- ANIMACIONES -------------------- */
+@-webkit-keyframes loader {
+  /* Hacemos que el cuadrado del reload gire en 360 grados */
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  /* Hacemos que el cuadrado del reload gire en 360 grados */
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loader-inner {
+  /* Hacemos que el relleno del cuadrado del reload se llene y luego se vacíe */
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+
+@keyframes loader-inner {
+  /* Hacemos que el relleno del cuadrado del reload se llene y luego se vacíe */
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+
 /* -------------------- RESET -------------------- */
 * {
   margin: 0;
@@ -39,6 +125,16 @@ img {
 h1 {
   font-size: 2.2rem;
   margin: 2rem 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /* -------------------- UTILIDADES -------------------- */
@@ -808,7 +904,7 @@ footer > div p {
 
 @media (min-width: 768px) {
   .modal-detalle {
-    height: 72vh;
+    height: 80vh;
     width: 50vw;
   }
 }
@@ -817,5 +913,54 @@ footer > div p {
   .modal-detalle {
     width: 30vw;
   }
+}
+
+/* ---------- RELOAD DE PÁGINA ---------- */
+#loader-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #bb371a;
+  row-gap: 3rem;
+}
+
+#loader-wrapper h2 {
+  color: #51050F;
+}
+
+.loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border: 4px solid #Fff;
+  -webkit-animation: loader 2s infinite ease;
+          animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  -webkit-animation: loader-inner 2s infinite ease-in;
+          animation: loader-inner 2s infinite ease-in;
 }
 /*# sourceMappingURL=styles.css.map */
