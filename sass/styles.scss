@@ -602,7 +602,31 @@ footer {
         }
     }
 }
-
+/* ---------- PÁGINA CONTACTO ---------- */
+.form-contact {
+    height: 70vh;
+    @include flex(true, column, center);
+    row-gap: 2rem;
+    h2 {
+        font-size: $txt-title;
+    }
+    div {
+        input,
+        textarea {
+            font-size: $txt-paragraph;
+        }
+        label {
+            font-size: $txt-normal
+        }
+    }
+}
+#get-notification {
+    .notification {
+        font-size: $txt-normal;
+        text-align: center;
+        margin-top: -3rem
+    }
+}
 /* ---------- RELOAD DE PÁGINA ---------- */
 #loader-wrapper {
     @include flex(true, column, center);

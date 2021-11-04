@@ -43,37 +43,37 @@
         </div>
     </header>
 
-    <!-- -------------------- MODALES -------------------- -->
-    <div class="modal">
-        <article class="modal-detalle">
-            <div id="modal-js">
-                <!-- ACÁ SE INSERTA LA BASE DE DATOS -->
+    <main class="container">
+        <h1>Contacto</h1>
+        <form action="GET" class="form-contact">
+            <h2>Llene el formulario para contactarnos</h2>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" class="input" placeholder="Nombre">
             </div>
-            <div class='amount'>
-                <a href='#' class='btn btn-primary' id='add'><i class="fas fa-plus"></i></a>
-                <input type='number' class='input' id='amount-input' value='0'>
-                <a href='#' class='btn btn-primary' id='less'><i class="fas fa-minus"></i></a>
+            <div>
+                <label for="tel">Teléfono:</label>
+                <input type="tel" name="tel" id="tel" class='input' placeholder="Teléfono" required>
             </div>
-            <div class="add-product">
-                <a href="#" class="btn btn-primary" id="add-product">Agregar</a>
+            <div>
+                <label for="email">Correo:</label>
+                <input type="email" name="email" id="email" class="input" placeholder="E-mail" required>
             </div>
-            <div id="success"></div>
-            <a href="#" class='close' id="close"><i class="fas fa-times"></i></a>
-        </article>
-    </div>
-
-    <!-- -------------------- CUERPO -------------------- -->
-    <main class="container productos">
-        <div class="back">
-            <a href="../index.html">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <h1>Bebidas</h1>
-        </div>
-        <section class="productos-detalle" id="productos">
-            <!-- ACÁ SE INSERTA LA BASE DE DATOS -->
-        </section>
+            <div>
+                <label for="msg">Mensaje:</label>
+                <textarea placeholder="Mensaje" name="msg" class="input" id="msg" cols="20" rows="5" required></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Enviar" class="btn btn-primary" id="send">
+                <input type="reset" value="Limpiar" class="btn btn-primary">
+            </div>
+        </form>
+        <div id="get-notification"></div>
     </main>
+
+    <div class="container" id="api">
+
+    </div>
 
     <!-- -------------------- FOOTER -------------------- -->
     <footer>
@@ -82,7 +82,7 @@
             <p>Copyright&copy;</p>
         </div>
     </footer>
-    
+
     <!-- SECCIÓN RECARGA DE PÁGINA -->
     <div id="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
@@ -93,7 +93,8 @@
     <script src="../js/jquery-3.6.0.min.js"></script>
     <!-- CUSTOM JS -->
     <script src="../js/load.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="../js/notification.js"></script>
+    <script src="../js/contact.js"></script>
     <!-- MENU JS -->
     <script src="../js/menu.js"></script>
 </body>

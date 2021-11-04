@@ -915,6 +915,46 @@ footer > div p {
   }
 }
 
+/* ---------- PÁGINA CONTACTO ---------- */
+.form-contact {
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 2rem;
+}
+
+.form-contact h2 {
+  font-size: 2.2rem;
+}
+
+.form-contact div input,
+.form-contact div textarea {
+  font-size: 1.5rem;
+}
+
+.form-contact div label {
+  font-size: 2rem;
+}
+
+#get-notification .notification {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: -3rem;
+}
+
 /* ---------- RELOAD DE PÁGINA ---------- */
 #loader-wrapper {
   display: -webkit-box;
