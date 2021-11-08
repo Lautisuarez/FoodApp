@@ -7,75 +7,62 @@ let productToAdd = document.getElementById('add-product');
 let page = window.location.pathname;
 let shop = document.getElementsByClassName('shop')[0].childNodes[1];
 
-/* ---------- CLASES ---------- */
-class Food{
-    constructor(name, price, desc, url){
-        this.name = name;
-        this.cantidad = 0;
-        this.price = Number(price);
-        this.description = desc,
-        this.urlImage = url
+/* ---------- BASE DE DATOS ---------- */
+$.getJSON('../bd.json', (res, est) => {
+    if (est === 'success'){
+        if (page == '/pages/burguers.html'){
+            insertHTML(res.burguers)
+        } else if (page == '/pages/lomos.html'){
+            insertHTML(res.lomitos)
+        } else if(page == '/pages/fries.html') {
+            insertHTML(res.fries)
+        } else if (page == '/pages/drinks.html'){
+            insertHTML(res.drinks)
+        }
     }
-    insertHTML(dad){
+    /* Si no se realiza el evento durante el llamado ajax, éste no funciona debido a que todavía no existen los elementos en el DOM. Por este motivo se encuentra ubicado acá */
+    for (const f of document.getElementsByClassName('food')){
+        f.addEventListener('click', (e) => {
+            e.preventDefault()
+            modal.css("display", "flex")
+            contentModal(f)
+        })
+    }
+})
+/* CARGAMOS LA BASE DE DATOS AL DOM */
+const insertHTML = (array) => {
+    for (const i of array){
         let contenedor = document.createElement('div');
         contenedor.innerHTML = `
             <article>
                 <a href="#" class="food">
-                    <img src='${this.urlImage}' alt='${this.description}'>
+                    <img src='${i.urlImage}' alt='${i.description}'>
                     <div class="description-product">
-                        <h2>${this.name}</h2>
-                        <p>$${this.price}</p>
+                        <h2>${i.name}</h2>
+                        <p>$<span>${i.price}</span></p>
                     </div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
         `
-        dad.appendChild(contenedor)
+        productos.appendChild(contenedor)
     }
 }
 
-/* ---------- BASE DE DATOS ---------- */
-/* HAMBURGUESAS */
-const doubleBurguer = new Food('Doble carne hamburguesa', 500, "Pan de papa, carne smasheada, queso cheddar, lechuga, tomate, rodajas de cebolla y salsa especial + papas.", "../img/burguers/double.png")
-const barbacoaBurguer = new Food('Hamburguesa con barbacoa', 400, "Pan de papa, carne smasheada, queso cheddar, cebolla caramelizada y salsa barbacoa + papas.", "../img/burguers/barbacoa.png")
-const bigBurguer = new Food('GRAN Burguer', 650, "3 capas de pan de papa, carne smasheada, queso cheddar, cebolla cortada en brunoise, lechuga, pepinillos y salsa especial + papas.", "../img/burguers/big-burguer.png")
-const criollaBurguer = new Food('Hamburguesa criolla', 550, "Pan de papa, dos carnes, queso Emmenthal, mayo casera, toque de chimi, lechuga, tomate, huevos + papas.", "../img/burguers/criolla.png")
-const champiBurguer = new Food('Hamburguesa con champiñones', 400, "Pan de papa, dos carnes, queso Emmenthal, mayo casera, champiñones salteados a la plancha + papas.", "../img/burguers/champiñon.png")
-let burguers = [doubleBurguer, barbacoaBurguer, bigBurguer, criollaBurguer, champiBurguer];
-/* LOMITOS */
-const completo = new Food('Lomo completo', 600, 'Pan casero, bife de lomo, lechuga, tomate, jamón, huevo, queso, mayo casera, chimi (opcional) + papas.', '../img/lomo/completo.png')
-const bigLomo = new Food('BIG lomo', 700, 'Pan casero, bife de lomo, lechuga, tomate, bacon, triple cheddar, cebolla morada y mayo casera + papas.', '../img/lomo/big-lomo.png')
-const cheeseLomo = new Food('Cheese lomo', 550, 'Pan casero, bife de lomo, lechuga, tomate, jamón, huevo, queso roquefort, mayonesa casera + papas.', '../img/lomo/cheese.png')
-const especialLomo = new Food('Especial lomo', 650, 'Pan casero, bife de lomo, lechuga, tomate, jamón, huevo, queso, mayo casera, chimi (opcional), ajíes y morrones en conserva + papas.', '../img/lomo/especial.png')
-let lomos = [completo, bigLomo, cheeseLomo, especialLomo];
-/* PAPAS */
-const fritas = new Food('Papas fritas', 150, 'Porción de crocantes papas.', '../img/papas/fritas.jpg');
-const cheddar = new Food('Papas con cheddar', 180, 'Porción de crocantes fritas con mucho cheddar', '../img/papas/papas-cheddar.jpg');
-const baconCheddar = new Food('Fritas con cheddar y bacon', 200, 'Porción de crocantes papas con mucho cheddar y bacon.', '../img/papas/baconCheddar.jpg');
-let papas = [fritas, cheddar, baconCheddar]
-/* BEBIDAS */
-const bebida500 = new Food('Bebida 500ml', 150, 'Agua mineral, Agua saborizada, Coca Cola, Fanta y Sprite', '../img/bebidas/bebida500.png');
-const imperial = new Food('Cerveza Imperial 473 cm3', 120, 'Imperial Lager, Imperial Golden, Imperial Ipa', '../img/bebidas/imperial.png');
-let bebidas = [bebida500, imperial];
-/* CARGAMOS LA BASE DE DATOS */
-const insertArray = (array) => {
-    for (const a of array){
-        a.insertHTML(productos)
+/* ---------- CLASES ---------- */
+class Pedido{
+    constructor(name, desc, amount, price, url){
+        this.name = name;
+        this.description = desc;
+        this.amount = amount;
+        this.price = price;
+        this.urlImage = url;
     }
-}
-if (page == '/FoodApp/pages/burguers.html'){
-    insertArray(burguers)
-} else if (page == '/FoodApp/pages/lomos.html'){
-    insertArray(lomos)
-} else if(page == '/FoodApp/pages/fries.html') {
-    insertArray(papas)
-} else if (page == '/FoodApp/pages/drinks.html'){
-    insertArray(bebidas)
 }
 
 /* ---------- FUNCIONES ---------- */
 let contentModal = (f) => {
-    /* Rellenamos el modal con el contenido del elemento que se hizo click */
+    /* Rellena el modal con el contenido del elemento que se hizo click */
     document.getElementById('modal-js').innerHTML = `
         ${f.childNodes[1].outerHTML}
         ${f.childNodes[3].outerHTML}
@@ -88,42 +75,34 @@ const guardarCarro = (clave, valor) => {
 const getCarro = (clave) => {
     return JSON.parse(localStorage.getItem(clave));
 }
-const addProduct = (array) => {
+const addProduct = () => {
     let title = productToAdd.parentElement.parentElement.childNodes[1].childNodes[3].childNodes[1].innerHTML; // Buscamos el nombre de la comida que eligió
-    let amountFood = productToAdd.parentElement.parentElement.childNodes[3].childNodes[3].value; // Buscamos la cantidad que eligió
+    let amountFood = Number(productToAdd.parentElement.parentElement.childNodes[3].childNodes[3].value); // Buscamos la cantidad que eligió
+    let price = Number(productToAdd.parentElement.parentElement.childNodes[1].childNodes[3].childNodes[3].childNodes[1].innerHTML); // Buscamos el precio de la comida
+    let urlImage = productToAdd.parentElement.parentElement.childNodes[1].childNodes[1].getAttribute("src"); // Obtenemos la ruta de la imagen
+    let description = productToAdd.parentElement.parentElement.childNodes[1].childNodes[5].innerHTML; // Obtenemos la descripcion de la comida
+    let carro = getCarro('carro'); // Obtenemos el carro almacenado en el LocalStorage
     let flag = true
+    const pedido = new Pedido(title, description, amountFood, price, urlImage); // Creamos el objeto pedido
 
-    for (const a of array){ // Recorremos la base de datos y verificamos que la comida exista
-        if (title == a.name){
-            a.cantidad += Math.abs(Number(amountFood)) // Sumamos la cantidad en el objeto
-            let carro = getCarro('carro'); // Obtenemos el carro almacenado en el LocalStorage
-            if(carro != null){
-                for (const c of carro){ //Recorremos el localStorage del carro
-                    if(c.name == title){
-                        c.cantidad += Math.abs(Number(amountFood));
-                        flag = false;
-                    }
-                }
-                if (flag){
-                    carro.push(a)
-                }
-            } else {
-                carro = [a]
+    if(carro != null){
+        for (const c of carro){ //Recorremos el localStorage del carro
+            if(c.name == title){
+                c.amount += Math.abs(amountFood);
+                flag = false;
             }
-            guardarCarro('carro', JSON.stringify(carro)) // Finalmente guardamos el carro en el localStorage
         }
+        if (flag){
+            carro.push(pedido)
+        }
+    } else {
+        carro = [pedido]
     }
+    guardarCarro('carro', JSON.stringify(carro)) // Finalmente guardamos el carro en el localStorage
 }
 
 /* ---------- EVENTOS ---------- */
 /* MODALES */
-for (const f of document.getElementsByClassName('food')){
-    f.addEventListener('click', (e) => {
-        e.preventDefault()
-        modal.css("display", "flex")
-        contentModal(f)
-    })
-}
 document.getElementById('close').addEventListener('click', (e) => {
     e.preventDefault()
     modal.toggle('fast')
@@ -149,14 +128,14 @@ document.getElementById('less').addEventListener('click', (e) => {
 /* LocalStorage */
 productToAdd.addEventListener('click', () => {
     // Lo agregamos al localStorage
-    if (page == '/FoodApp/pages/burguers.html'){
-        addProduct(burguers)
-    } else if (page == '/FoodApp/pages/lomos.html'){
-        addProduct(lomos)
-    } else if (page == '/FoodApp/pages/fries.html'){
-        addProduct(papas)
-    } else if (page == '/FoodApp/pages/drinks.html'){
-        addProduct(bebidas)
+    if (page == '/pages/burguers.html'){
+        addProduct('burguers')
+    } else if (page == '/pages/lomos.html'){
+        addProduct('lomos')
+    } else if (page == '/pages/fries.html'){
+        addProduct('fries')
+    } else if (page == '/pages/drinks.html'){
+        addProduct('drinks')
     }
 
     /* Aclaramos que el objeto se agrego con exito */

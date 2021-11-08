@@ -1,0 +1,94 @@
+{
+    "burguers":[
+        {
+            "name":"Doble carne hamburguesa",
+            "price":500,
+            "description":"Pan de papa, carne smasheada, queso cheddar, lechuga, tomate, rodajas de cebolla y salsa especial + papas.",
+            "urlImage":"../img/burguers/double.png"
+        },
+        {
+            "name":"Hamburguesa con barbacoa",
+            "price":400,
+            "description":"Pan de papa, carne smasheada, queso cheddar, cebolla caramelizada y salsa barbacoa + papas.",
+            "urlImage":"../img/burguers/barbacoa.png"
+        },
+        {
+            "name":"GRAN Burguer",
+            "price":650,
+            "description":"3 capas de pan de papa, carne smasheada, queso cheddar, cebolla cortada en brunoise, lechuga, pepinillos y salsa especial + papas.",
+            "urlImage":"../img/burguers/big-burguer.png"
+        },
+        {
+            "name":"Hamburguesa criolla",
+            "price":550,
+            "description":"Pan de papa, dos carnes, queso Emmenthal, mayo casera, toque de chimi, lechuga, tomate, huevos + papas.",
+            "urlImage":"../img/burguers/criolla.png"
+        },
+        {
+            "name":"Hamburguesa con champiñones",
+            "price":400,
+            "description":"Pan de papa, dos carnes, queso Emmenthal, mayo casera, champiñones salteados a la plancha + papas.",
+            "urlImage":"../img/burguers/champiñon.png"
+        }
+    ],
+    "lomitos":[
+        {
+            "name":"Lomo completo",
+            "price":600,
+            "description":"Pan casero, bife de lomo, lechuga, tomate, jamón, huevo, queso, mayo casera, chimi (opcional) + papas.",
+            "urlImage":"../img/lomo/completo.png"
+        },
+        {
+            "name":"BIG lomo",
+            "price":700,
+            "description":"Pan casero, bife de lomo, lechuga, tomate, bacon, triple cheddar, cebolla morada y mayo casera + papas.",
+            "urlImage":"../img/lomo/big-lomo.png"
+        },
+        {
+            "name":"Cheese lomo",
+            "price":550,
+            "description":"Pan casero, bife de lomo, lechuga, tomate, jamón, huevo, queso roquefort, mayonesa casera + papas.",
+            "urlImage":"../img/lomo/cheese.png"
+        },
+        {
+            "name":"Especial lomo",
+            "price":650,
+            "description":"Pan casero, bife de lomo, lechuga, tomate, jamón, huevo, queso, mayo casera, chimi (opcional), ajíes y morrones en conserva + papas.",
+            "urlImage":"../img/lomo/especial.png"
+        }
+    ],
+    "fries":[
+        {
+            "name":"Papas fritas",
+            "price":150,
+            "description":"Porción de crocantes papas.",
+            "urlImage":"../img/papas/fritas.jpg"
+        },
+        {
+            "name":"Papas con cheddar",
+            "price":180,
+            "description":"Porción de crocantes fritas con mucho cheddar.",
+            "urlImage":"../img/papas/papas-cheddar.jpg"
+        },
+        {
+            "name":"Fritas con cheddar y bacon",
+            "price":200,
+            "description":"Porción de crocantes papas con mucho cheddar y bacon.",
+            "urlImage":"../img/papas/baconCheddar.jpg"
+        }
+    ],
+    "drinks":[
+        {
+            "name":"Bebida 500ml",
+            "price":150,
+            "description":"Agua mineral, Agua saborizada, Coca Cola, Fanta y Sprite",
+            "urlImage":"../img/bebidas/bebida500.png"
+        },
+        {
+            "name":"Cerveza Imperial 473 cm3",
+            "price":120,
+            "description":"Imperial Lager, Imperial Golden, Imperial Ipa",
+            "urlImage":"../img/bebidas/imperial.png"
+        }
+    ]
+}

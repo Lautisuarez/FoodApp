@@ -22,23 +22,3 @@ send.addEventListener('click', (e) => {
     email.value = '';
     msg.value = '';
 })
-
-
-// API DE PRUEBA
-let url = "https://hp-api.herokuapp.com/api/characters/students"
-
-$("#api").prepend('<button class="btn btn-primary" id="btn-get">Obtener API</button>');
-//Escuchamos el evento click del botón agregado
-$("#btn-get").click(() => {
-    $.get(url, function (res, est) {
-          if(est === "success"){
-            for (const dato of res) {
-                $("#api").prepend(`<div>
-                    <h3>Nombre: ${dato.name}</h3>
-                    <p><b>Casa:</b> ${dato.house == '' ? 'No tiene' : dato.house}</p>
-                    </div>
-                `);
-            }
-          }
-    });
-});

@@ -16,14 +16,14 @@ const showCarro = (carro) => {
         `
     } else {
         for (const c of carro){
-            numTotal += c.price * c.cantidad;
+            numTotal += c.price * c.amount;
             carrito.innerHTML += `
                 <article>
                     <div class="food">
                         <img src='${c.urlImage}' alt='${c.description}'>
                         <div class="description-product">
                             <h2>${c.name}</h2>
-                            <p>Cantidad: ${c.cantidad}</p>
+                            <p>Cantidad: ${c.amount}</p>
                         </div>
                         <a href='#' id='remove'><i class="fas fa-times"></i></a>
                     </div>
