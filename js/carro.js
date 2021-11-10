@@ -55,7 +55,7 @@ for (const f of food){
         deleteFood(f)
     })
 }
-if (carro.length > 0){
+if ( carro != null && carro.length > 0){
     shop.innerHTML += `
         <div id='notification'></div>
     `

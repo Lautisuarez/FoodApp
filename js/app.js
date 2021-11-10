@@ -10,13 +10,13 @@ let shop = document.getElementsByClassName('shop')[0].childNodes[1];
 /* ---------- BASE DE DATOS ---------- */
 $.getJSON('../bd.json', (res, est) => {
     if (est === 'success'){
-        if (page == '/pages/burguers.html'){
+        if (page == '/FoodApp/pages/burguers.html'){
             insertHTML(res.burguers)
-        } else if (page == '/pages/lomos.html'){
+        } else if (page == '/FoodApp/pages/lomos.html'){
             insertHTML(res.lomitos)
-        } else if(page == '/pages/fries.html') {
+        } else if(page == '/FoodApp/pages/fries.html') {
             insertHTML(res.fries)
-        } else if (page == '/pages/drinks.html'){
+        } else if (page == '/FoodApp/pages/drinks.html'){
             insertHTML(res.drinks)
         }
     }
@@ -128,13 +128,13 @@ document.getElementById('less').addEventListener('click', (e) => {
 /* LocalStorage */
 productToAdd.addEventListener('click', () => {
     // Lo agregamos al localStorage
-    if (page == '/pages/burguers.html'){
+    if (page == '/FoodApp/pages/burguers.html'){
         addProduct('burguers')
-    } else if (page == '/pages/lomos.html'){
+    } else if (page == '/FoodApp/pages/lomos.html'){
         addProduct('lomos')
-    } else if (page == '/pages/fries.html'){
+    } else if (page == '/FoodApp/pages/fries.html'){
         addProduct('fries')
-    } else if (page == '/pages/drinks.html'){
+    } else if (page == '/FoodApp/pages/drinks.html'){
         addProduct('drinks')
     }
 
@@ -160,7 +160,8 @@ productToAdd.addEventListener('click', () => {
 })
 
 /* PROGRAMA */
-if (getCarro('carro').length > 0){
+let carro = getCarro('carro')
+if ( carro != null && carro.length > 0){
     shop.innerHTML += `
         <div id='notification'></div>
     `

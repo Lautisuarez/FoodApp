@@ -4,7 +4,8 @@ const getCarro = (clave) => {
     return JSON.parse(localStorage.getItem(clave));
 }
 
-if (getCarro('carro').length > 0){
+let carro = getCarro('carro')
+if ( carro != null && carro.length > 0){
     shop.innerHTML += `
         <div id='notification'></div>
     `
